@@ -1,0 +1,8 @@
+*.class
+*.log
+*.sc
+.*
+
+target/
+project/project/
+!.gitignore

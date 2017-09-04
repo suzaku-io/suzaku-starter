@@ -1,2 +1,2 @@
-# suzaku-starter
-Starter project for Suzaku framework.
+# Suzaku starter
+A starter project for using the Suzaku framework.
