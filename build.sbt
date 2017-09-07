@@ -12,12 +12,13 @@ val commonSettings = Seq(
   resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 )
 
-lazy val shared = crossProject.crossType(CrossType.Pure)
+lazy val shared = crossProject
+  .crossType(CrossType.Pure)
   .in(file("shared"))
   .settings(commonSettings: _*)
 
 lazy val sharedJvm = shared.jvm
-lazy val sharedJs = shared.js
+lazy val sharedJs  = shared.js
 
 lazy val webUI = project
   .in(file("web-ui"))
@@ -25,7 +26,7 @@ lazy val webUI = project
   .settings(commonSettings: _*)
   .settings(
     libraryDependencies ++= Seq(
-      "io.suzaku" %%% "suzaku-core-web"    % suzakuVersion,
+      "io.suzaku" %%% "suzaku-core-ui-web" % suzakuVersion,
       "io.suzaku" %%% "suzaku-widgets-web" % suzakuVersion
     )
   )
@@ -38,8 +39,8 @@ lazy val client = project
   .settings(
     scalaJSUseMainModuleInitializer := true,
     libraryDependencies ++= Seq(
-      "io.suzaku" %%% "suzaku-core"    % suzakuVersion,
-      "io.suzaku" %%% "suzaku-widgets" % suzakuVersion
+      "io.suzaku" %%% "suzaku-core-app-web" % suzakuVersion,
+      "io.suzaku" %%% "suzaku-widgets-app"  % suzakuVersion
     )
   )
   .dependsOn(sharedJs, webUI)
