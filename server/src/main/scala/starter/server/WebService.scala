@@ -1,10 +1,10 @@
 package starter.server
 
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 
 class WebService() extends Directives {
 
-  val route = {
+  val route: Route = {
     pathSingleSlash {
       get {
         getFromResource("public/index.html")

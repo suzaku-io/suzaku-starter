@@ -7,12 +7,12 @@ import com.typesafe.config.ConfigFactory
 
 object WebServer {
   def main(args: Array[String]) {
-    implicit val system = ActorSystem("server-system")
-    implicit val materializer = ActorMaterializer()
+    implicit val system: ActorSystem             = ActorSystem("server-system")
+    implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-    val config = ConfigFactory.load()
+    val config    = ConfigFactory.load()
     val interface = config.getString("http.interface")
-    val port = config.getInt("http.port")
+    val port      = config.getInt("http.port")
 
     val service = new WebService()
 
