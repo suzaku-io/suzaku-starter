@@ -2,6 +2,7 @@ import sbt._
 import Keys._
 
 val suzakuVersion = "0.1.0-SNAPSHOT"
+val diodeVersion  = "1.1.2"
 
 val commonSettings = Seq(
   scalaVersion := "2.12.3",
@@ -40,7 +41,8 @@ lazy val client = project
     scalaJSUseMainModuleInitializer := true,
     libraryDependencies ++= Seq(
       "io.suzaku" %%% "suzaku-core-app-web" % suzakuVersion,
-      "io.suzaku" %%% "suzaku-widgets-app"  % suzakuVersion
+      "io.suzaku" %%% "suzaku-widgets-app"  % suzakuVersion,
+      "io.suzaku" %%% "diode"               % diodeVersion
     )
   )
   .dependsOn(sharedJs, webUI)
