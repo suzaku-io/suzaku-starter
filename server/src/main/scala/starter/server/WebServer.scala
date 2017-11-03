@@ -6,7 +6,7 @@ import akka.stream.ActorMaterializer
 import com.typesafe.config.ConfigFactory
 
 object WebServer {
-  def main(args: Array[String]) {
+  def main(args: Array[String]):Unit = {
     implicit val system: ActorSystem             = ActorSystem("server-system")
     implicit val materializer: ActorMaterializer = ActorMaterializer()
 

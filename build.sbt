@@ -5,8 +5,17 @@ val suzakuVersion = "0.1.0-SNAPSHOT"
 val diodeVersion  = "1.1.2"
 
 val commonSettings = Seq(
-  scalaVersion := "2.12.3",
-  scalacOptions ++= Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8"),
+  scalaVersion := "2.12.4",
+  scalacOptions ++= Seq("-unchecked",
+                        "-feature",
+                        "-deprecation",
+                        "-encoding",
+                        "utf8",
+                        "-Ypatmat-exhaust-depth",
+                        "40",
+                        "-Xfuture",
+                        "-Ywarn-unused:imports",
+                        "-Ywarn-unused:implicits"),
   libraryDependencies ++= Seq(
     "org.scalatest" %%% "scalatest" % "3.0.1" % Test
   ),
